@@ -13,7 +13,7 @@ pipeline {
 		}
 		stage('Compile') { 
 			steps {
-				sh("make")
+				sh("make -j10")
 			}
 		}
 	}
