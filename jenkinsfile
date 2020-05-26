@@ -1,0 +1,28 @@
+pipeline {
+	agent { label 'embedded' }
+	stages {
+		stage('Compile Generator') { 
+			steps {
+				sh("make generator")
+			}
+		}
+		stage('Generate Source file') { 
+			steps {
+				sh("./generator")
+			}
+		}
+		stage('Compile') { 
+			steps {
+				sh("make -j10")
+			}
+		}
+	}
+	post {
+		always {
+			recordIssues tool: gcc(), unstableTotalHigh: 1, unstableTotalNormal: 500, unstableTotalLow: 1
+		}
+		cleanup {
+				cleanWs()
+		}
+	}
+}
