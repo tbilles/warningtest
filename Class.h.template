@@ -1,0 +1,11 @@
+#ifndef CLASSNUM_H_
+#define CLASSNUM_H_
+
+#include "Base.h"
+
+class ClassNUM : public Base {
+public:
+	ClassNUM();
+};
+
+#endif

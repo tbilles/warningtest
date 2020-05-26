@@ -1,0 +1,4 @@
+Class*.cpp
+Class*.h
+*.o
+a.out
