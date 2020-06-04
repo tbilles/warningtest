@@ -13,7 +13,7 @@ pipeline {
 		}
 		stage('Compile') { 
 			steps {
-				sh("make -j10")
+				sh("make -j10 --output-sync=target")
 			}
 		}
 	}
